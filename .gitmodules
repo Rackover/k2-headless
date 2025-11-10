@@ -1,0 +1,3 @@
+[submodule "LouveSystems.K2Lib"]
+	path = LouveSystems.K2Lib
+	url = git@github.com:Rackover/k2lib.git
