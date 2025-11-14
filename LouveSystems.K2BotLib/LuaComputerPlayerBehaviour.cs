@@ -291,7 +291,7 @@
             Table table = new Table(script);
 
             table["rules"] = MakeAPI(session.Rules);
-            table["random"] = MakeAPI(session.Random);
+            table["random"] = MakeAPI(session.ComputersRandom);
             table["player"] = MakeAPI(session.SessionPlayers[forPlayerIndex]);
             table["world"] = MakeAPI(session.CurrentGameState.world, session.Rules, session.SessionPlayers[forPlayerIndex].RealmIndex);
             table["voting"] = MakeAPI(session.CurrentGameState.voting);
