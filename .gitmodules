@@ -1,3 +1,6 @@
 [submodule "LouveSystems.K2Lib"]
 	path = LouveSystems.K2Lib
 	url = git@github.com:Rackover/k2lib.git
+[submodule "LouveSystems.K2BotLib"]
+	path = LouveSystems.K2BotLib
+	url = https://github.com/Rackover/k2-botlib
