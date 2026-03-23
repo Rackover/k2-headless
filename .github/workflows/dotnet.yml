@@ -14,11 +14,14 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         target: [ 'netstandard2.1', 'net8.0' ]
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
