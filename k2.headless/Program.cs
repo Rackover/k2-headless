@@ -9,6 +9,7 @@
     using LouveSystems.K2.Lib;
     using System.IO;
     using LouveSystems.K2.BotLib;
+    using Newtonsoft.Json;
 
     internal class Program
     {
@@ -23,6 +24,8 @@
 
         static int Main(string[] args)
         {
+            Console.WriteLine("Started...");
+
             Random random = new Random();
             seed = random.Next();
 
@@ -101,15 +104,28 @@
             }
 
             if (players.Count <= 1) {
-                Console.WriteLine("Not enough players - please use /addplayer <faction index> [<lua file path>] to add a personality.\nExamples:\n/addplayer 0\n/addplayer 0 example.lua");
+                Console.WriteLine("Not enough players - please use /addplayer <faction index> [<lua file path>] to add a personality.\nExamples:\n/addplayer 0\n/addplayer 0 simple_normal.lua");
                 return 1;
             }
 
             GameRules rules = new GameRules();
 
-            using (FileStream fs = File.OpenRead("DefaultRules.BIN")) {
-                using (BinaryReader br = new BinaryReader(fs)) {
-                    rules.Read(default, br);
+            using (FileStream fs = File.OpenRead("DefaultRules.Json")) {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    JsonSerializerSettings settings = new JsonSerializerSettings()
+                    {
+                    };
+
+                    settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter()
+                    {
+                        AllowIntegerValues = true,
+                    });
+
+                    rules = JsonConvert.DeserializeObject<GameRules>(
+                        sr.ReadToEnd(),
+                        settings
+                    );
                 }
             }
 

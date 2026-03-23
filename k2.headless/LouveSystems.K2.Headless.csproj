@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <AssemblyTitle>LouveSystems.K2.Headless</AssemblyTitle>
     <Product>LouveSystems.K2.Headless</Product>
@@ -10,23 +10,26 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
 	<LangVersion>9.0</LangVersion>
     <FileVersion>1.2</FileVersion>
+    <StartupObject>LouveSystems.K2.Program</StartupObject>
+    <UseWindowsForms>False</UseWindowsForms>
+    <UseWPF>False</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;CA1416</NoWarn>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <PublishSingleFile>true</PublishSingleFile>
+    <DebugType>None</DebugType>
+    <SelfContained>false</SelfContained>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="DefaultRules.BIN" />
-    <None Remove="example.lua" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.21" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DefaultRules.BIN">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="example.lua">
+    <Content Include="simple_normal.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -35,7 +38,10 @@
     <ProjectReference Include="..\LouveSystems.K2BotLib\LouveSystems.K2BotLib.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="example_requirement.lua">
+    <None Update="DefaultRules.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="simple_inc.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="LouveSystems.Logger.dll">

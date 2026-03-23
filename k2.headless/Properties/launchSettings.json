@@ -2,7 +2,7 @@
   "profiles": {
     "k2.headless": {
       "commandName": "Project",
-      "commandLineArgs": "/addplayer 0 minimax.lua /addplayer 0",
+      "commandLineArgs": "/addplayer 0 simple_normal.lua /addplayer 0",
       "hotReloadEnabled": false
     }
   }

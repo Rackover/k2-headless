@@ -1,0 +1,169 @@
+{
+  "additionalRealmsCount": 0,
+  "hasCouncilRealm": 1,
+  "councilRealmRegionSize": 1,
+  "initialSafetyMarginBetweenRealms": 1,
+  "initialRealmsSize": 1,
+  "silverRevenuePerRegion": 1,
+  "startingGold": 2,
+  "startingDecisionCount": 3,
+  "maxDecisionCount": 7,
+  "favourGoldPrice": 50,
+  "enhanceAdminGoldPrice": 5,
+  "enhanceAdminGoldPriceIncreasePerUpgrade": 10,
+  "allowLooting": 1,
+  "silverLootedOnCapital": 10,
+  "neutralRegionStarvation": 1,
+  "goTakeNeutralOnlyWhenNoContest": 1,
+  "goTakeDestroysBuildings": 0,
+  "turnsBetweenVotes": 4,
+  "initialVoteTurnsDelay": 1,
+  "decisionTimeSeconds": 30,
+  "additionalDecisionTimeSecondsOnFirstTurn": 30,
+  "eatenCorners": 0,
+  "eatFirstLastColumns": 0,
+  "capitalCanReplay": 1,
+  "subjugationForAll": 0,
+  "voting": {
+    "voterCount": 33,
+    "criteriasUsedPerVote": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "turnoverPercentagePerCouncil": [
+      35,
+      55,
+      75,
+      95,
+      100
+    ],
+    "votingCriterias": [
+      {
+        "criteria": 1,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 10
+      },
+      {
+        "criteria": 2,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 30
+      },
+      {
+        "criteria": 3,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 10
+      },
+      {
+        "criteria": 5,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 20
+      },
+      {
+        "criteria": 4,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 20
+      },
+      {
+        "criteria": 8,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 10,
+        "influenceWeight": 20
+      },
+      {
+        "criteria": 6,
+        "enabled": 1,
+        "activeAfterCouncils": 0,
+        "chancesToBeSelected": 5,
+        "influenceWeight": 10
+      },
+      {
+        "criteria": 7,
+        "enabled": 1,
+        "activeAfterCouncils": 1,
+        "chancesToBeSelected": 30,
+        "influenceWeight": 25
+      },
+      {
+        "criteria": 9,
+        "enabled": 1,
+        "activeAfterCouncils": 1,
+        "chancesToBeSelected": 30,
+        "influenceWeight": 40
+      }
+    ],
+    "forceMajorityEventually": 1
+  },
+  "buildings": [
+    {
+      "building": 2,
+      "silverRevenue": 10,
+      "silverCost": 20,
+      "canBeBuilt": 1
+    },
+    {
+      "building": 8,
+      "silverRevenue": 0,
+      "silverCost": 30,
+      "canBeBuilt": 1
+    },
+    {
+      "building": 4,
+      "silverRevenue": 0,
+      "silverCost": 50,
+      "canBeBuilt": 1
+    },
+    {
+      "building": 1,
+      "silverRevenue": 10,
+      "silverCost": 0,
+      "canBeBuilt": 0
+    }
+  ],
+  "factions": {
+    "richesSilverMultiplier": 2,
+    "richesBuildingMultiplier": 3,
+    "richesBuildingDivider": 2,
+    "looterRichesMultiplier": 5,
+    "looterMinimumSilver": 10,
+    "conqueredFortPayout": 50,
+    "factionFlags": [
+      {
+        "enabled": true,
+        "flag": 0
+      },
+      {
+        "enabled": true,
+        "flag": 1
+      },
+      {
+        "enabled": true,
+        "flag": 258
+      },
+      {
+        "enabled": true,
+        "flag": 128
+      },
+      {
+        "enabled": true,
+        "flag": 8
+      },
+      {
+        "enabled": true,
+        "flag": 16
+      }
+    ]
+  }
+}
