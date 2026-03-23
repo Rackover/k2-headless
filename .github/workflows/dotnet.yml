@@ -37,5 +37,5 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.target }}
+        name: ${{ matrix.target.framework }}
         path: ${{ github.workspace }}/**/publish/
