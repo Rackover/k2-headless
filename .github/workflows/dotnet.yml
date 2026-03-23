@@ -33,7 +33,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish -c Release -o ./publish -f ${{ matrix.target.framework }} -p PublishSingleFile:${{ matrix.target.publishSingleFile }}
+      run: dotnet publish -c Release -o ./publish -f ${{ matrix.target.framework }} -p PublishSingleFile=${{ matrix.target.publishSingleFile }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
