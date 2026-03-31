@@ -54,14 +54,15 @@ jobs:
       run: |
         ls  -gha ${{ github.workspace }}/publish/
         sudo apt install -y zip
-        zip -qq -r ${{ matrix.target.framework }}.zip ${{ github.workspace }}/publish/
+        cd ${{ github.workspace }}/publish/
+        zip -qq -r ${{ matrix.target.framework }}.zip .
 
     - name: Release
       uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        files: ${{ matrix.target.framework }}.zip
+        files: ${{ github.workspace }}/publish/${{ matrix.target.framework }}.zip
         generate_release_notes: true
         tag_name: r${{ steps.version.outputs.BUILD_NUMBER }}
         release_name: Release r${{ steps.version.outputs.BUILD_NUMBER }}
