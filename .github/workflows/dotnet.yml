@@ -29,7 +29,7 @@ jobs:
 
     - name: Get tag
       run: |
-        echo "BUILD_NUMBER=$(git rev-list --count HEAD)" >> $GITHUB_OUTPUT
+        echo "BUILD_NUMBER=$(git rev-list --count ${{ github.ref_name }})" >> $GITHUB_OUTPUT
       id: version
 
     - name: Setup .NET
@@ -41,7 +41,7 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet publish -c Release -o ./publish -f ${{ matrix.target.framework }} -p PublishSingleFile=False
+      run: dotnet publish -c Release -o ${{ github.workspace }}/publish/ -f ${{ matrix.target.framework }} -p PublishSingleFile=${{matrix.target.publishSingleFile}}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
@@ -54,7 +54,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        files: ${{ github.workspace }}/publish/
+        files: ${{ github.workspace }}/publish/**
         generate_release_notes: true
         tag_name: r${{ steps.version.outputs.BUILD_NUMBER }}
         release_name: Release r${{ steps.version.outputs.BUILD_NUMBER }}
