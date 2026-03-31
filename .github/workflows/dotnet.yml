@@ -50,9 +50,11 @@ jobs:
         name: ${{ matrix.target.framework }}.zip
         path: ${{ github.workspace }}/publish/
 
-    - uses: montudor/action-zip@v1
-      with:
-        args: zip -qq -r ${{ matrix.target.framework }}.zip . -i ${{ github.workspace }}/publish/
+    - name: "Zip"
+      run: |
+        ls  -gha ${{ github.workspace }}/publish/
+        apt install -y zip
+        zip -qq -r ${{ matrix.target.framework }}.zip ${{ github.workspace }}/publish/
 
     - name: Release
       uses: softprops/action-gh-release@v2
