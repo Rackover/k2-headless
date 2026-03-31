@@ -53,7 +53,7 @@ jobs:
     - name: "Zip"
       run: |
         ls  -gha ${{ github.workspace }}/publish/
-        apt install -y zip
+        sudo apt install -y zip
         zip -qq -r ${{ matrix.target.framework }}.zip ${{ github.workspace }}/publish/
 
     - name: Release
