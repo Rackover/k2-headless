@@ -46,7 +46,7 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.target.framework }}
+        name: ${{ matrix.target.framework }}.zip
         path: ${{ github.workspace }}/**/publish/
 
     - name: Create Release
