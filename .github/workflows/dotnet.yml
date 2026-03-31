@@ -41,7 +41,7 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet publish k2.healess/LouveSystems.K2.Headless.csproj -c Release -o ${{ github.workspace }}/publish/ --self-contained true -f ${{ matrix.target.framework }} -p PublishSingleFile=${{matrix.target.publishSingleFile}}
+      run: dotnet publish k2.headless/LouveSystems.K2.Headless.csproj -c Release -o ${{ github.workspace }}/publish/ --self-contained true -f ${{ matrix.target.framework }} -p PublishSingleFile=${{matrix.target.publishSingleFile}}
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
