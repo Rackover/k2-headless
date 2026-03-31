@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: '1'
+        fetch-depth: 0
         submodules: recursive
 
     - name: Get tag
@@ -59,7 +59,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
-        files: ${{ github.workspace }}/publish/**
+        files: ${{ matrix.target.framework }}.zip
         generate_release_notes: true
         tag_name: r${{ steps.version.outputs.BUILD_NUMBER }}
         release_name: Release r${{ steps.version.outputs.BUILD_NUMBER }}
