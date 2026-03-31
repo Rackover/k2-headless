@@ -48,10 +48,11 @@ jobs:
       with:
         name: ${{ matrix.target.framework }}.zip
         path: ${{ github.workspace }}/publish/
+
     - name: Create ZIP
       uses: montudor/action-zip@v1
       with:
-        args: zip -qq -r ${{ matrix.target.framework }}.zip ${{ github.workspace }}/publish
+        args: zip -r ${{ matrix.target.framework }}.zip ${{ github.workspace }}/publish/*
 
     - name: Create Release
       id: create_release
